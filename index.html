@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
     <title>Ristorante Con Fusion</title>
 </head>
 
@@ -26,22 +26,17 @@
 
            <div class="collapse navbar-collapse" id="Navbar">
             <ul class="navbar-nav mr-auto">
-             <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-home fa-lg"></span>Home</a></li>
-             <li class="nav-item"><a class="nav-link" href="./aboutus.html"><span class="fa fa-info fa-lg"></span>About</a></li>
+             <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-home fa-lg"></span> Home</a></li>
+             <li class="nav-item"><a class="nav-link" href="./aboutus.html"><span class="fa fa-info fa-lg"></span> About</a></li>
              <li class="nav-item"><a class="nav-link" href="#"><span class="fa fa-list fa-lg"></span> Menu</a></li>
              <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
            </ul>
-           <span class="navbar-text">
-               <a data-toggle="modal" data-target="#loginModal">
-                    <span class="fa fa-sign-in"></span> Login</a>
-           </span>
-
-
-
-
+           
+           <a href="#loginModal" class="text-white" id="loginIcon"><span class="fa fa-sign-in"></span> Login</a>
+           </span></a>
            </div>
-
-       </div>
+         
+        </div>
     </nav>
 
     <div id="loginModal" class="modal fade" role="dialog">
@@ -51,7 +46,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Login </h4>
-                    <button type="button" class="close" data-dismiss="modal">
+                    <button type="button" class="close" id="closeLogin">
                         &times;</button>
                 </div>
 
@@ -94,7 +89,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Reserve A Table</h4>
-                    <button type="button" class="close" data-dismiss="modal">
+                    <button type="button" class="close" id="closeReserve">
                         &times;</button>
                 </div>
 
@@ -180,25 +175,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <header class="jumbotron">
         <div class="container">
             <div class="row row-header align-items-center">
@@ -212,7 +188,7 @@
                 </div>
                     <div class="col-12 col-sm align-self-center"> 
                         
-                        <button type="button" class="btn btn-warning btn-block" data-toggle="modal" data-target="#reserveModal">
+                        <button type="button" class="btn btn-warning btn-block" id="reserveButton">
                         Reserve Table</button>
                     </div>
                 
@@ -375,8 +351,35 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+
     <script>
-        
+            $(document).ready(function(){
+                $("#loginIcon").click(function(){
+                    $("#loginModal").modal("toggle");
+                });
+                $("#closeLogin").click(function(){
+        $("#loginModal").modal("hide");
+                });        
+    
+    });
+     </script>
+
+    <script>
+            $(document).ready(function(){
+                $("#reserveButton").click(function(){
+                    $("#reserveModal").modal({show: true});
+                });
+    $("#closeReserve").click(function(){
+        $("#reserveModal").modal("hide");
+                });
+    });
+     </script>
+
+
+
+    <script>
         $(document).ready(function(){
             $("#mycarousel").carousel({interval:2000});
                      $("#carouselButton").click(function(){
@@ -394,6 +397,8 @@
        });
        
     </script>
+    
+
 
 </body>
 
